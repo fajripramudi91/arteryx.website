@@ -1,0 +1,736 @@
+================================================================================
+    PANDUAN EDIT WEBSITE ARTERYX - MANUAL BOOK
+    Terakhir diperbarui: 9 April 2026
+================================================================================
+
+DAFTAR ISI:
+  1. Struktur Folder
+  2. Cara Edit Teks
+  3. Cara Ganti Gambar
+  4. Cara Edit Warna & Style
+  5. Cara Edit Data (Statistik, Harga, dll)
+  6. Cara Edit Informasi Kontak
+  7. Cara Edit Link & Menu Navigasi
+  8. Cara Edit Form
+  9. Cara Edit Backend/API
+  10. Tips & Troubleshooting
+
+
+================================================================================
+1. STRUKTUR FOLDER
+================================================================================
+
+Semua file website ada di folder "src/app/" dengan struktur berikut:
+
+  src/
+  └── app/
+      ├── App.tsx                      --> File utama (entrypoint)
+      ├── routes.tsx                   --> Pengaturan halaman/routing
+      └── components/
+          ├── Navbar.tsx               --> Menu navigasi atas
+          ├── Hero.tsx                 --> Bagian hero (paling atas)
+          ├── ProblemSection.tsx        --> Bagian "About Us" & statistik
+          ├── SolutionSection.tsx       --> Bagian "The Solution"
+          ├── HowItWorks.tsx           --> Bagian "How It Works"
+          ├── FeaturesSection.tsx       --> Bagian produk & dashboard
+          ├── PricingSection.tsx        --> Bagian harga
+          ├── CTASection.tsx           --> Bagian "Call To Action"
+          ├── Footer.tsx               --> Footer, kontak, newsletter
+          ├── DemoModal.tsx            --> Pop-up form demo request
+          ├── DashboardMockup.tsx      --> Simulasi dashboard live
+          ├── AnimatedCounter.tsx      --> Komponen angka animasi
+          ├── AdminDashboard.tsx       --> Halaman admin (/admin)
+          ├── api.tsx                  --> Penghubung ke backend
+          └── useInView.tsx            --> Helper untuk animasi scroll
+
+  supabase/
+  └── functions/
+      └── server/
+          └── index.tsx               --> Backend/API server
+
+  src/styles/
+  ├── fonts.css                       --> Import font
+  ├── theme.css                       --> Warna & tema
+  └── index.css                       --> Style utama
+
+
+================================================================================
+2. CARA EDIT TEKS
+================================================================================
+
+--- 2.1 Nama Brand / Logo ---
+
+  File: src/app/components/Navbar.tsx (baris 19)
+  Cari : ARTERYX
+  Ganti: [Nama brand Anda]
+  
+  PENTING: Nama brand juga muncul di:
+    - src/app/components/Hero.tsx (baris 148) --> Watermark besar di hero
+    - src/app/components/Footer.tsx (baris 227) --> Logo di footer
+    - src/app/components/Footer.tsx (baris 294) --> Copyright
+
+
+--- 2.2 Headline Hero (Teks Besar Paling Atas) ---
+
+  File: src/app/components/Hero.tsx (baris 7)
+  Cari : const words = ["PREDICTIVE", "MAINTENANCE", "PLATFORM"];
+  Ganti: const words = ["KATA1", "KATA2", "KATA3"];
+  
+  Contoh: const words = ["SMART", "FACTORY", "SOLUTION"];
+  
+  CATATAN: Setiap kata muncul satu per satu (efek typewriter).
+  Kata ketiga akan berwarna abu-abu. Untuk mengubah ini,
+  edit baris 56: className={i === 2 ? "text-gray-300" : ""}
+
+
+--- 2.3 Sub-headline Hero ---
+
+  File: src/app/components/Hero.tsx (baris 42)
+  Cari : AI-powered predictive maintenance is evolving from "reactive repairs" 
+         to "intelligent prevention"
+  Ganti: [Teks sub-headline Anda]
+
+
+--- 2.4 Speciality Tags di Hero ---
+
+  File: src/app/components/Hero.tsx (baris 70-78)
+  Cari blok ini:
+    <span ...>Speciality</span>
+    <p ...>Real-time</p>
+    <p ...>AI-Powered</p>
+    ...
+    <span ...>Speciality</span>
+    <p ...>Monitoring</p>
+    <p ...>WhatsApp Alerts</p>
+
+  Ganti teks sesuai kebutuhan Anda.
+
+
+--- 2.5 Deskripsi Hero ---
+
+  File: src/app/components/Hero.tsx (baris 88)
+  Cari : Industrial machines evolving from reactive maintenance to intelligent 
+         predictive systems, preventing costly downtime before it happens.
+  Ganti: [Deskripsi singkat bisnis Anda]
+
+
+--- 2.6 Tombol CTA di Hero ---
+
+  File: src/app/components/Hero.tsx
+  Baris 106: "Request Demo" --> Ganti teks tombol orange
+  Baris 116: "Start Free Trial" --> Ganti teks tombol outline
+
+
+--- 2.7 Section "About Us" ---
+
+  File: src/app/components/ProblemSection.tsx
+  Baris 49 : "About Us" --> Judul section
+  Baris 60-63: Paragraf deskripsi utama
+  Baris 73-74: Paragraf deskripsi tambahan
+
+
+--- 2.8 Section "The Solution" ---
+
+  File: src/app/components/SolutionSection.tsx
+  Baris 57 : "The Solution" --> Judul section
+  Baris 67 : Deskripsi singkat di kanan
+  
+  Tiga kartu fitur (baris 21-43):
+  Kartu 1: title: "Real-Time Monitoring"
+            description: "Track machine health..."
+            tag: "Monitoring"
+  Kartu 2: title: "AI Anomaly Detection"  
+            description: "Advanced machine learning..."
+            tag: "AI-Powered"
+  Kartu 3: title: "WhatsApp Alert System"
+            description: "Get instant alerts..."
+            tag: "Alerts"
+
+  Nama client/partner (baris 134):
+  Cari : ["ACME Corp", "TechIndustry", "GlobalMFG", "AutoPlant", "SteelWorks"]
+  Ganti: ["Nama Client 1", "Nama Client 2", ...]
+
+
+--- 2.9 Section "How It Works" ---
+
+  File: src/app/components/HowItWorks.tsx (baris 7-9)
+  
+  Step 1: title: "Collect Machine Data"
+          description: "IoT sensors continuously gather..."
+  Step 2: title: "Analyze with AI"
+          description: "Machine learning models process..."
+  Step 3: title: "Send Alert via WhatsApp"
+          description: "Receive instant notifications..."
+
+  Judul besar (baris 77-79):
+  Cari : Three Steps to Zero Downtime
+  Ganti: [Judul Anda]
+
+
+--- 2.10 Section "Pricing" ---
+
+  File: src/app/components/PricingSection.tsx (baris 11-37)
+  Detail ada di Bagian 5.2 di bawah.
+
+
+--- 2.11 Section CTA (Call to Action) ---
+
+  File: src/app/components/CTASection.tsx
+  Baris 42-46: Headline besar
+    Cari : Start Preventing / Downtime / Today
+    Ganti: [Headline CTA Anda]
+  
+  Baris 56: Deskripsi
+    Cari : Join hundreds of manufacturers who have eliminated...
+    Ganti: [Deskripsi CTA Anda]
+
+  Tombol:
+    Baris 74: "Request Demo"
+    Baris 85: "Talk to Sales"
+
+
+--- 2.12 Section Footer ---
+
+  File: src/app/components/Footer.tsx
+  Baris 159: "Get in Touch" --> Judul contact
+  Baris 162: Deskripsi contact
+  Baris 230: Deskripsi brand di footer
+  Baris 294: Copyright text
+
+
+--- 2.13 Demo Modal ---
+
+  File: src/app/components/DemoModal.tsx
+  Baris 80 : "Request a Demo" --> Judul modal
+  Baris 83 : "Fill in your details..." --> Sub-judul
+  Baris 108: "Demo Request Sent!" --> Pesan sukses
+  Baris 111: "Our team will contact you..." --> Deskripsi sukses
+  Baris 231: "Schedule My Demo" --> Teks tombol submit
+
+
+================================================================================
+3. CARA GANTI GAMBAR
+================================================================================
+
+Semua gambar menggunakan URL dari Unsplash. Untuk mengganti:
+
+1. Buka https://unsplash.com
+2. Cari gambar yang diinginkan
+3. Klik gambar, lalu klik kanan -> "Copy Image Address" atau
+   gunakan format: https://images.unsplash.com/photo-[ID]?w=1080
+4. Ganti URL di file yang sesuai
+
+
+--- 3.1 Gambar Hero (Robotic Arm) ---
+
+  File: src/app/components/Hero.tsx (baris 134)
+  Cari : src="https://images.unsplash.com/photo-1774229637247..."
+  Ganti: src="[URL gambar baru Anda]"
+  
+  Ukuran disarankan: landscape, minimal 1080px lebar
+  Tips: Gunakan gambar industrial/teknologi untuk konsistensi
+
+
+--- 3.2 Gambar About / Problem Section ---
+
+  File: src/app/components/ProblemSection.tsx (baris 149)
+  Cari : src="https://images.unsplash.com/photo-1759159091728..."
+  Ganti: src="[URL gambar baru Anda]"
+  
+  CATATAN: Gambar ini otomatis grayscale (hitam putih).
+  Untuk menghilangkan efek grayscale, hapus class "grayscale".
+
+
+--- 3.3 Gambar How It Works (IoT Sensor) ---
+
+  File: src/app/components/HowItWorks.tsx (baris 45)
+  Cari : src="https://images.unsplash.com/photo-1601192711538..."
+  Ganti: src="[URL gambar baru Anda]"
+  
+  CATATAN: Gambar ini juga grayscale.
+
+
+--- 3.4 Gambar Product Cards (4 gambar) ---
+
+  File: src/app/components/FeaturesSection.tsx (baris 6-27)
+  
+  Gambar 1 "Sensor Module A" (baris 10):
+    Cari : img: "https://images.unsplash.com/photo-1624301809538..."
+    
+  Gambar 2 "Controller Unit B" (baris 15):
+    Cari : img: "https://images.unsplash.com/photo-1768462862601..."
+    
+  Gambar 3 "Vibration Sensor C" (baris 20):
+    Cari : img: "https://images.unsplash.com/photo-1601192711538..."
+    
+  Gambar 4 "Gateway Hub D" (baris 25):
+    Cari : img: "https://images.unsplash.com/photo-1759159091728..."
+
+  CATATAN: Gambar product card otomatis grayscale, dan 
+  berubah warna saat di-hover. Efek ini dari class:
+  "grayscale group-hover:grayscale-0"
+
+
+--- 3.5 Menggunakan Gambar Lokal (Bukan URL) ---
+
+  Jika ingin menggunakan gambar dari komputer Anda:
+  
+  1. Taruh file gambar di folder: src/imports/
+  2. Di file komponen, import gambar:
+     import myImage from "../imports/nama-gambar.jpg";
+  3. Gunakan di tag gambar:
+     <ImageWithFallback src={myImage} alt="Deskripsi" />
+
+  CATATAN: Format yang didukung: .jpg, .jpeg, .png, .webp, .gif, .svg
+
+
+================================================================================
+4. CARA EDIT WARNA & STYLE
+================================================================================
+
+--- 4.1 Warna Utama Website ---
+
+  Website menggunakan 3 warna utama:
+  - Hitam  (#000000) --> bg-black, text-black
+  - Putih  (#FFFFFF) --> bg-white, text-white
+  - Orange (#f97316) --> bg-orange-500, text-orange-500
+
+  Untuk mengganti warna orange ke warna lain, lakukan 
+  "Find and Replace" di semua file:
+  
+  Contoh ganti ke biru:
+    orange-500 --> blue-500
+    orange-600 --> blue-600
+    rgba(249,115,22 --> rgba(59,130,246
+
+  File yang perlu diubah:
+    - Hero.tsx
+    - SolutionSection.tsx
+    - HowItWorks.tsx
+    - FeaturesSection.tsx
+    - PricingSection.tsx
+    - CTASection.tsx
+    - Footer.tsx
+    - DemoModal.tsx
+    - DashboardMockup.tsx
+
+
+--- 4.2 Font ---
+
+  Website menggunakan 2 font:
+  - Space Grotesk --> untuk heading/judul (bold, tebal)
+  - Inter          --> untuk body/paragraf (regular)
+  
+  Untuk mengganti font:
+  
+  1. Buka file: src/styles/fonts.css
+  2. Tambahkan import font baru dari Google Fonts:
+     @import url('https://fonts.googleapis.com/css2?family=NamaFont&display=swap');
+  
+  3. Lakukan "Find and Replace" di semua komponen:
+     Cari : fontFamily: "Space Grotesk, sans-serif"
+     Ganti: fontFamily: "NamaFont, sans-serif"
+
+     Cari : fontFamily: "Inter, sans-serif"
+     Ganti: fontFamily: "NamaFontLain, sans-serif"
+
+
+--- 4.3 Efek Grayscale pada Gambar ---
+
+  Beberapa gambar menggunakan efek hitam-putih.
+  Untuk menghapus efek ini:
+  
+  Cari : className="... grayscale"
+  Hapus: kata "grayscale" dari className
+
+
+================================================================================
+5. CARA EDIT DATA (STATISTIK, HARGA, DLL)
+================================================================================
+
+--- 5.1 Statistik / Angka ---
+
+  A) Statistik di "About Us" (ProblemSection.tsx baris 21-26):
+  
+    const stats = [
+      { num: 500, suffix: "+", label: "Machines Monitored" },
+      { num: 150, suffix: "", label: "Enterprise Clients" },
+      { num: 99, suffix: ".8%", label: "Prediction Accuracy" },
+      { num: 24, suffix: "/7", label: "Real-time Monitoring" },
+    ];
+    
+    Contoh edit: { num: 1000, suffix: "+", label: "Mesin Terpantau" }
+
+  B) Data analisis di "About Us" (ProblemSection.tsx baris 28-33):
+  
+    const analysis = [
+      { value: 20, direction: "down", label: "Unplanned downtime reduction", ... },
+      { value: 50, direction: "up", label: "Maintenance cost savings", ... },
+      ...
+    ];
+
+  C) Statistik di CTA Section (CTASection.tsx baris 9-14):
+  
+    const stats = [
+      { num: 2000, suffix: "+", label: "Active Machines" },
+      { num: 150, suffix: "+", label: "Enterprise Clients" },
+      { num: 50, prefix: "$", suffix: "M+", label: "Downtime Prevented" },
+      { num: 99, suffix: ".8%", label: "Customer Satisfaction" },
+    ];
+
+
+--- 5.2 Harga / Pricing Plans ---
+
+  File: src/app/components/PricingSection.tsx (baris 11-37)
+
+  Plan Basic:
+    name: "Basic"
+    price: 499              --> Angka (untuk animasi counter)
+    priceDisplay: "499"     --> Teks yang ditampilkan
+    description: "Perfect for small operations"
+    features: [             --> Daftar fitur (bisa ditambah/kurangi)
+      "Up to 10 machines",
+      "Real-time monitoring",
+      ...
+    ]
+
+  Plan Standard:
+    name: "Standard"
+    price: 1299
+    priceDisplay: "1,299"
+    badge: "Most Popular"   --> Badge orange di pojok kanan atas
+    highlighted: true       --> Kartu ini background hitam
+
+  Plan Enterprise:
+    name: "Enterprise"
+    priceDisplay: "Custom"  --> Jika "Custom", tidak tampil angka
+    
+  CATATAN: Untuk menambah plan baru, copy salah satu object plan
+  dan tambahkan ke array. Pastikan grid tetap 3 kolom, atau ubah
+  grid-cols di baris 65 jika ingin lebih/kurang.
+
+
+--- 5.3 Data Dashboard Mockup ---
+
+  File: src/app/components/DashboardMockup.tsx
+
+  Data sensor (baris 6-13):
+    const baseSensorData = [
+      { id: "t0", time: "00:00", vibration: 45, temperature: 72 },
+      ...
+    ];
+  
+  Data mesin (baris 15-20):
+    const machines = [
+      { id: "M-001", name: "CNC Machine A", status: "healthy", score: 98 },
+      { id: "M-002", name: "Compressor B", status: "warning", score: 72 },
+      ...
+    ];
+    
+    Status yang tersedia: "healthy" (hijau), "warning" (orange), "critical" (merah)
+
+  Alert messages (baris 150, 159):
+    "Critical: Pump D - Abnormal vibration"
+    "Warning: Compressor B - Temp rising"
+
+
+--- 5.4 Product Cards ---
+
+  File: src/app/components/FeaturesSection.tsx (baris 6-27)
+  
+  const products = [
+    { id: "NO. A10-1688-1010", label: "Sensor Module A", img: "URL..." },
+    { id: "NO. A10-1688-1211", label: "Controller Unit B", img: "URL..." },
+    ...
+  ];
+  
+  - id    : Kode produk yang ditampilkan
+  - label : Nama produk
+  - img   : URL gambar (lihat Bagian 3.4)
+
+
+================================================================================
+6. CARA EDIT INFORMASI KONTAK
+================================================================================
+
+  File: src/app/components/Footer.tsx
+
+--- 6.1 Email ---
+  Baris 172-173:
+  Cari : href="mailto:hello@arteryx.com"
+  Ganti: href="mailto:[email@anda.com]"
+  
+  Juga ganti teks yang ditampilkan:
+  Cari : hello@arteryx.com
+  Ganti: [email@anda.com]
+
+
+--- 6.2 Nomor Telepon ---
+  Baris 183-184:
+  Cari : href="tel:+1234567890"
+  Ganti: href="tel:+[nomor Anda]"
+  
+  Juga ganti teks:
+  Cari : +1 (234) 567-890
+  Ganti: [nomor tampilan Anda]
+
+
+--- 6.3 Alamat Kantor ---
+  Baris 194-195:
+  Cari : 123 Industrial Ave, San Francisco, CA 94105
+  Ganti: [Alamat kantor Anda]
+
+
+--- 6.4 Copyright ---
+  Baris 294:
+  Cari : 2026 Arteryx. All rights reserved.
+  Ganti: [Tahun] [Nama perusahaan Anda]. All rights reserved.
+
+
+================================================================================
+7. CARA EDIT LINK & MENU NAVIGASI
+================================================================================
+
+--- 7.1 Menu Navbar ---
+
+  File: src/app/components/Navbar.tsx (baris 23)
+  Cari : {["Features", "How It Works", "Pricing", "Contact"].map(...)}
+  
+  Untuk menambah/mengubah menu:
+  Ganti array: ["Menu1", "Menu2", "Menu3", "Menu4"]
+  
+  CATATAN: Setiap menu otomatis jadi anchor link ke section 
+  dengan id yang sama. Contoh: "Features" --> href="#features"
+  Pastikan section yang dituju punya id yang sesuai.
+  
+  Menu mobile (baris 49) HARUS diubah juga agar sama.
+
+
+--- 7.2 Footer Links ---
+
+  File: src/app/components/Footer.tsx (baris 245-248)
+  
+  Kolom "Product":
+    items: ["Features", "How It Works", "Pricing", "Case Studies", "Integrations"]
+  
+  Kolom "Company":
+    items: ["About Us", "Careers", "Blog", "Press Kit", "Partners"]
+
+  Kolom "Legal" (baris 281):
+    items: ["Privacy Policy", "Terms of Service", "Cookie Policy", "GDPR Compliance", "Security"]
+  
+  CATATAN: Saat ini semua link mengarah ke "#" (belum ada halaman).
+  Untuk menambah halaman baru, lihat Bagian 7.3.
+
+
+--- 7.3 Menambah Halaman Baru ---
+
+  File: src/app/routes.tsx
+  
+  1. Buat file komponen baru: src/app/components/NamaHalaman.tsx
+  2. Di routes.tsx, tambahkan route baru di children:
+     { path: "nama-halaman", Component: NamaHalaman }
+  3. Import komponen di routes.tsx:
+     import { NamaHalaman } from "./components/NamaHalaman";
+
+
+================================================================================
+8. CARA EDIT FORM
+================================================================================
+
+--- 8.1 Demo Request Form (Pop-up Modal) ---
+
+  File: src/app/components/DemoModal.tsx
+  
+  Field yang ada:
+  - Full Name (required)
+  - Work Email (required)  
+  - Company (required)
+  - Phone (optional)
+  - Number of Machines (dropdown, optional)
+  - Message (optional)
+
+  Untuk menambah field baru:
+  1. Tambah di state (baris 13): newField: ""
+  2. Tambah input di form (setelah baris ~195)
+  3. Field akan otomatis terkirim ke backend
+
+  Dropdown "Number of Machines" (baris 188-193):
+    <option value="1-10">1 - 10 machines</option>
+    <option value="11-50">11 - 50 machines</option>
+    <option value="51-200">51 - 200 machines</option>
+    <option value="200+">200+ machines</option>
+  
+  Bisa diganti sesuai kebutuhan.
+
+
+--- 8.2 Contact Form (di Footer) ---
+
+  File: src/app/components/Footer.tsx (baris 8-93)
+  
+  Field: Name, Email, Subject, Message
+  Placeholder bisa diubah di atribut placeholder="..."
+
+
+--- 8.3 Newsletter Form (di Footer) ---
+
+  File: src/app/components/Footer.tsx (baris 96-139)
+  
+  Hanya ada 1 field: Email
+  Teks tombol: "Subscribe" (baris 135)
+
+
+================================================================================
+9. CARA EDIT BACKEND / API
+================================================================================
+
+  CATATAN: Hanya edit bagian ini jika Anda paham coding backend.
+
+--- 9.1 File Backend ---
+
+  File: supabase/functions/server/index.tsx
+  
+  API endpoints yang tersedia:
+    POST /demo-request      --> Menerima demo request
+    POST /contact           --> Menerima pesan kontak
+    POST /newsletter        --> Menerima subscribe newsletter
+    POST /pricing-click     --> Tracking klik pricing
+    GET  /admin/demo-requests  --> Ambil semua demo requests
+    GET  /admin/contacts       --> Ambil semua pesan kontak
+    GET  /admin/newsletters    --> Ambil semua subscriber
+    GET  /admin/pricing-clicks --> Ambil semua pricing clicks
+    GET  /admin/stats          --> Ambil ringkasan statistik
+
+
+--- 9.2 File API Helper (Frontend) ---
+
+  File: src/app/components/api.tsx
+  
+  File ini menghubungkan frontend ke backend.
+  Biasanya TIDAK perlu diedit kecuali menambah endpoint baru.
+
+
+--- 9.3 Admin Dashboard ---
+
+  File: src/app/components/AdminDashboard.tsx
+  
+  Akses melalui: [URL website Anda]/admin
+  Atau klik link "Admin" kecil di bagian paling bawah footer.
+
+  Dashboard menampilkan semua submission dari:
+  - Demo requests
+  - Contact messages
+  - Newsletter subscribers
+  - Pricing click tracking
+
+
+================================================================================
+10. TIPS & TROUBLESHOOTING
+================================================================================
+
+--- 10.1 Sebelum Edit ---
+
+  - SELALU backup file sebelum diedit (copy-paste ke folder lain)
+  - Edit satu file pada satu waktu, lalu test
+  - Gunakan text editor seperti VS Code (gratis):
+    https://code.visualstudio.com
+
+
+--- 10.2 Cara Test Perubahan ---
+
+  Buka terminal di folder project, jalankan:
+    npm run dev
+  
+  Buka browser: http://localhost:5173
+  Setiap kali Anda save file, browser otomatis refresh.
+
+
+--- 10.3 Error Umum ---
+
+  ERROR: "Unexpected token"
+  SOLUSI: Cek apakah ada tanda kutip " atau ' yang tidak ditutup.
+          Pastikan setiap { ada pasangan }.
+
+  ERROR: "Module not found"
+  SOLUSI: Cek apakah nama file import sudah benar.
+          Perhatikan huruf besar/kecil (case sensitive).
+
+  ERROR: Gambar tidak muncul
+  SOLUSI: Pastikan URL gambar valid. Buka URL di browser untuk test.
+          Jika menggunakan file lokal, pastikan path import benar.
+
+  ERROR: Layout rusak setelah edit
+  SOLUSI: Pastikan tidak menghapus className yang penting.
+          Cek apakah tag HTML sudah ditutup dengan benar.
+
+
+--- 10.4 Cheatsheet Warna Tailwind ---
+
+  Warna yang sering digunakan di website ini:
+  
+  Hitam    : bg-black / text-black
+  Putih    : bg-white / text-white
+  Orange   : bg-orange-500 / text-orange-500
+  Abu tua  : bg-gray-900 / text-gray-900
+  Abu      : bg-gray-500 / text-gray-500
+  Abu muda : bg-gray-200 / text-gray-200
+  Abu tipis: bg-gray-100 / text-gray-100
+  Merah    : bg-red-500 / text-red-500
+  Hijau    : bg-green-500 / text-green-500
+
+  Ukuran teks:
+  text-xs   = sangat kecil
+  text-sm   = kecil
+  text-base = normal
+  text-lg   = agak besar
+  text-xl   = besar
+  text-2xl  = lebih besar
+  text-3xl  = sangat besar
+
+
+--- 10.5 Cara Deploy Ulang Setelah Edit ---
+
+  Jika menggunakan Vercel + GitHub:
+  1. Buka terminal di folder project
+  2. git add .
+  3. git commit -m "Update teks dan gambar"
+  4. git push
+  5. Vercel otomatis deploy ulang dalam 1-2 menit
+
+  Jika upload manual ke GitHub:
+  1. Buka repository di GitHub
+  2. Navigasi ke file yang diedit
+  3. Klik ikon pensil (edit)
+  4. Paste isi file baru
+  5. Klik "Commit changes"
+  6. Vercel otomatis deploy ulang
+
+
+================================================================================
+  QUICK REFERENCE - EDIT YANG PALING SERING DILAKUKAN
+================================================================================
+
+  | Yang Ingin Diedit          | File                      | Baris |
+  |--------------------------- |---------------------------|-------|
+  | Nama brand/logo            | Navbar.tsx                | 19    |
+  | Headline utama             | Hero.tsx                  | 7     |
+  | Deskripsi hero             | Hero.tsx                  | 88    |
+  | Gambar hero                | Hero.tsx                  | 134   |
+  | Statistik angka            | ProblemSection.tsx        | 21-26 |
+  | Deskripsi about            | ProblemSection.tsx        | 60-63 |
+  | 3 fitur utama              | SolutionSection.tsx       | 21-43 |
+  | Nama client/partner        | SolutionSection.tsx       | 134   |
+  | Langkah how it works       | HowItWorks.tsx            | 7-9   |
+  | Gambar product             | FeaturesSection.tsx       | 10-26 |
+  | Harga plans                | PricingSection.tsx        | 11-37 |
+  | CTA headline               | CTASection.tsx            | 42-46 |
+  | Email kontak               | Footer.tsx                | 172   |
+  | Telepon                    | Footer.tsx                | 183   |
+  | Alamat kantor              | Footer.tsx                | 194   |
+  | Copyright                  | Footer.tsx                | 294   |
+  | Form field demo            | DemoModal.tsx             | 117+  |
+  | Data dashboard simulasi    | DashboardMockup.tsx       | 6-20  |
+
+================================================================================
+  SELESAI - Jika ada pertanyaan, tanyakan ke developer Anda!
+================================================================================
