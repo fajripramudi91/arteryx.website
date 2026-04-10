@@ -19,7 +19,7 @@ export function PricingSection() {
     },
     {
       name: "Standard",
-      price: 1290000,
+      price: 3499000,
       priceDisplay: "3,499,000",
       description: "Most popular for growing businesses",
       features: ["4-10 machines", "Real-time monitoring", "WhatsApp + Email alerts", "Advanced AI analytics", "Predictive maintenance", "Priority support", "Custom integrations"],
