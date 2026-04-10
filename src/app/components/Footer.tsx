@@ -169,8 +169,8 @@ export function Footer() {
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 uppercase tracking-wider" style={{ fontFamily: "Inter, sans-serif" }}>Email</p>
-                  <a href="mailto:hello@arteryx.com" className="text-sm text-white hover:text-orange-500 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>
-                    hello@arteryx.com
+                  <a href="mailto:arteryx@gmail.com" className="text-sm text-white hover:text-orange-500 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>
+                    arteryx@gmail.com
                   </a>
                 </div>
               </div>
@@ -180,8 +180,8 @@ export function Footer() {
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 uppercase tracking-wider" style={{ fontFamily: "Inter, sans-serif" }}>Phone</p>
-                  <a href="tel:+1234567890" className="text-sm text-white hover:text-orange-500 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>
-                    +1 (234) 567-890
+                  <a href="tel:+6285715365400" className="text-sm text-white hover:text-orange-500 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>
+                    +62 857 1536 5400
                   </a>
                 </div>
               </div>
@@ -192,7 +192,7 @@ export function Footer() {
                 <div>
                   <p className="text-xs text-gray-500 uppercase tracking-wider" style={{ fontFamily: "Inter, sans-serif" }}>Office</p>
                   <span className="text-sm text-white" style={{ fontFamily: "Inter, sans-serif" }}>
-                    123 Industrial Ave, San Francisco, CA 94105
+                    Jakarta Selatan, Indonesia
                   </span>
                 </div>
               </div>
