@@ -19,9 +19,9 @@ function AnimatedBar({ value, color, delay }: { value: number; color: string; de
 
 export function ProblemSection() {
   const stats = [
-    { num: 500, suffix: "+", label: "Machines Monitored" },
-    { num: 150, suffix: "", label: "Enterprise Clients" },
-    { num: 99, suffix: ".8%", label: "Prediction Accuracy" },
+    { num: 82, suffix: "%", label: "Unplanned Downtime" },
+    { num: 3, suffix: "", label: "Pilot Partners" },
+    { num: 95, suffix: "%", label: "AI Accuracy Target" },
     { num: 24, suffix: "/7", label: "Real-time Monitoring" },
   ];
 
@@ -57,9 +57,9 @@ export function ProblemSection() {
               className="mt-6 text-gray-500 text-sm leading-relaxed max-w-md"
               style={{ fontFamily: "Inter, sans-serif" }}
             >
-              Arteryx is an AI-powered predictive maintenance platform designed for industrial operations.
-              We help manufacturers move from reactive to proactive maintenance, reducing downtime costs
-              and extending machine lifespan through intelligent monitoring.
+              Arteryx is an AI-powered predictive maintenance platform built for industrial operations.
+              We're on a mission to help manufacturers shift from reactive to proactive maintenance — reducing
+              downtime costs and extending machine lifespan through intelligent monitoring.
             </motion.p>
 
             <motion.p
@@ -70,8 +70,9 @@ export function ProblemSection() {
               className="mt-4 text-gray-400 text-xs leading-relaxed max-w-md"
               style={{ fontFamily: "Inter, sans-serif" }}
             >
-              Our platform integrates IoT sensors, machine learning algorithms, and real-time alerting
-              to deliver actionable insights directly to your team via WhatsApp, email, or SMS.
+              Founded by engineers who saw firsthand how costly unplanned downtime is, our platform integrates
+              IoT sensors, machine learning, and real-time WhatsApp alerts to deliver actionable insights
+              directly to your team — before failures happen.
             </motion.p>
 
             {/* Animated stat counters */}
