@@ -39,7 +39,7 @@ export function Hero() {
             className="text-sm text-gray-500 max-w-xs text-right leading-relaxed"
             style={{ fontFamily: "Inter, sans-serif" }}
           >
-            AI-powered predictive maintenance is evolving from "reactive repairs" to "intelligent prevention"
+            We're reimagining industrial maintenance — from "fix when broken" to "prevent before it breaks"
           </motion.p>
         </div>
 
@@ -85,7 +85,7 @@ export function Hero() {
                 className="mt-8 text-gray-500 max-w-md text-sm leading-relaxed"
                 style={{ fontFamily: "Inter, sans-serif" }}
               >
-                Industrial machines evolving from reactive maintenance to intelligent predictive systems, preventing costly downtime before it happens.
+                Industrial machines deserve smarter care. We're building the AI platform that predicts failures before they happen — saving you time, money, and headaches.
               </motion.p>
 
               {/* CTA Buttons */}
@@ -103,17 +103,17 @@ export function Hero() {
                   style={{ fontFamily: "Inter, sans-serif" }}
                   onClick={(e) => { e.preventDefault(); setDemoOpen(true); }}
                 >
-                  Request Demo
+                  Get Early Access
                   <ArrowRight className="w-4 h-4" />
                 </motion.a>
                 <motion.a
-                  href="#pricing"
+                  href="#how-it-works"
                   whileHover={{ scale: 1.05, backgroundColor: "#000", color: "#fff" }}
                   whileTap={{ scale: 0.97 }}
                   className="inline-flex items-center gap-2 border border-black text-black px-8 py-3 text-sm uppercase tracking-widest cursor-pointer"
                   style={{ fontFamily: "Inter, sans-serif", backgroundColor: "#fff", borderColor: "#000", color: "#000" }}
                 >
-                  Start Free Trial
+                  See How It Works
                 </motion.a>
               </motion.div>
             </div>
