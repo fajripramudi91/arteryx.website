@@ -11,16 +11,16 @@ export function PricingSection() {
   const plans = [
     {
       name: "Basic",
-      price: 299.000,
-      priceDisplay: "299.000",
+      price: 299000,
+      priceDisplay: "299,000",
       description: "Perfect for small operations",
       features: ["1-2 machines", "Real-time monitoring", "Email alerts", "Basic analytics", "Community support"],
       highlighted: false,
     },
     {
       name: "Standard",
-      price: 500.000,
-      priceDisplay: "500.000",
+      price: 500000,
+      priceDisplay: "500,000",
       description: "Most popular for growing businesses",
       features: ["3-5 machines", "Real-time monitoring", "WhatsApp + Email alerts", "Advanced AI analytics", "Predictive maintenance", "Priority support", "Custom integrations"],
       highlighted: true,
