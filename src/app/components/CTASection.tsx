@@ -7,10 +7,10 @@ import { DemoModal } from "./DemoModal";
 export function CTASection() {
   const [demoOpen, setDemoOpen] = useState(false);
   const stats = [
-    { num: 2000, suffix: "+", label: "Active Machines" },
-    { num: 150, suffix: "+", label: "Enterprise Clients" },
-    { num: 50, prefix: "$", suffix: "M+", label: "Downtime Prevented" },
-    { num: 99, suffix: ".8%", label: "Customer Satisfaction" },
+    { num: 3, suffix: "", label: "Pilot Partners" },
+    { num: 45, suffix: "%", label: "Downtime Reduced" },
+    { num: 10, suffix: "x", label: "Faster Detection" },
+    { num: 30, suffix: "", label: "Days Free Trial" },
   ];
 
   return (
@@ -53,7 +53,7 @@ export function CTASection() {
               className="mt-6 text-gray-400 max-w-md text-sm leading-relaxed"
               style={{ fontFamily: "Inter, sans-serif" }}
             >
-              Join hundreds of manufacturers who have eliminated unexpected machine failures with Arteryx's AI-powered platform.
+              We're building the future of industrial maintenance. Be among the first manufacturers to experience AI-powered predictive maintenance — join our early access program today.
             </motion.p>
 
             <motion.div
