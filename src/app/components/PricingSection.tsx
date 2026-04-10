@@ -11,18 +11,18 @@ export function PricingSection() {
   const plans = [
     {
       name: "Basic",
-      price: 499,
-      priceDisplay: "499",
+      price: 299.000,
+      priceDisplay: "299.000",
       description: "Perfect for small operations",
-      features: ["Up to 10 machines", "Real-time monitoring", "Email alerts", "Basic analytics", "Community support"],
+      features: ["1-2 machines", "Real-time monitoring", "Email alerts", "Basic analytics", "Community support"],
       highlighted: false,
     },
     {
       name: "Standard",
-      price: 1299,
-      priceDisplay: "1,299",
+      price: 500.000,
+      priceDisplay: "500.000",
       description: "Most popular for growing businesses",
-      features: ["Up to 50 machines", "Real-time monitoring", "WhatsApp + Email alerts", "Advanced AI analytics", "Predictive maintenance", "Priority support", "Custom integrations"],
+      features: ["3-5 machines", "Real-time monitoring", "WhatsApp + Email alerts", "Advanced AI analytics", "Predictive maintenance", "Priority support", "Custom integrations"],
       highlighted: true,
       badge: "Most Popular",
     },
@@ -106,7 +106,7 @@ export function PricingSection() {
               <div className="flex items-baseline gap-1 mb-8">
                 {plan.priceDisplay !== "Custom" ? (
                   <>
-                    <span className={`text-sm ${plan.highlighted ? "text-gray-400" : "text-gray-500"}`}>$</span>
+                    <span className={`text-sm ${plan.highlighted ? "text-gray-400" : "text-gray-500"}`}>Rp</span>
                     <AnimatedCounter
                       target={plan.price}
                       className="text-5xl tracking-tighter"
