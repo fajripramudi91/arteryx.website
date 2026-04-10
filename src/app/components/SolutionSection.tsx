@@ -128,18 +128,25 @@ export function SolutionSection() {
           className="mt-16 pt-8 border-t border-gray-200"
         >
           <p className="text-xs text-gray-400 uppercase tracking-widest mb-6" style={{ fontFamily: "Inter, sans-serif" }}>
-            Trusted by leading manufacturers
+            Early Access Partners
           </p>
           <div className="flex flex-wrap items-center gap-12">
-            {["ACME Corp", "TechIndustry", "GlobalMFG", "AutoPlant", "SteelWorks"].map((name) => (
+            {["Your Factory", "Your Plant", "Your Operation"].map((name) => (
               <span
                 key={name}
-                className="text-xl text-gray-300 tracking-tight hover:text-gray-500 transition-colors"
+                className="text-xl text-gray-300 tracking-tight hover:text-orange-500 transition-colors"
                 style={{ fontFamily: "Space Grotesk, sans-serif", fontWeight: 700 }}
               >
                 {name}
               </span>
             ))}
+            <motion.span
+              whileHover={{ scale: 1.05 }}
+              className="text-sm text-orange-500 uppercase tracking-widest cursor-pointer"
+              style={{ fontFamily: "Inter, sans-serif" }}
+            >
+              → Become a Pilot Partner
+            </motion.span>
           </div>
         </motion.div>
       </div>
